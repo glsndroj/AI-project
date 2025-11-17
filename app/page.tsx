@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 type User = {
   name: string;
   age: number;
-  id: number;
+  _id: string;
 };
 export default function Home() {
   const [users, setUsers] = useState<User[]>([]);
@@ -16,16 +16,10 @@ export default function Home() {
       .then((res) => setUsers(res.users));
   }, []);
   return (
-    <div className="w-screen h-screen flex items-center justify-center">
+    <div className="w-screen h-screen flex flex-col items-center justify-center">
       {users.map((user) => {
-        return (
-          
-            <p key={user.id}>{user.name}</p>
-          
-          
-        )
-        
-})}
+        return <p key={user._id}>{user.name}</p>;
+      })}
     </div>
   );
 }
