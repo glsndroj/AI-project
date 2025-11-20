@@ -11,9 +11,15 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import ImageAnalysisSvg from "@/SVG/ImageAnalysis";
+import { useState } from "react";
 
 
 export default function ImageAnalysis() {
+  const [uploadedImage, setUploadedImage] = useState<File | null>(null)
+  const [uploadedImageUrl, setUploadedImageUrl] = useState("")
+  const [detectedObject, setDetectedobject] = useState<any[]>([])
+  const [analyzing, setAnalyzing] = useState(false)
+
   return (
     <Card className="h-fit w-[580px]">
       <CardHeader>
